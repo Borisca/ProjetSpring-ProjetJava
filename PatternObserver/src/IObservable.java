@@ -1,7 +1,7 @@
 
 public interface IObservable {
 
-	void notify();
+	void notifier();
 	void add(Observer obs);
 	void remove(Observer obs);
 }
