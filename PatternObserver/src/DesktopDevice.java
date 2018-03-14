@@ -1,16 +1,22 @@
 
-public class DesktopDevice implements Observer,IDisplay{
+public class DesktopDevice implements Observer, IDisplay {
+	WeatherStation station;
 
-	@Override
-	public void display() {
-		// TODO Auto-generated method stub
-		
+	DesktopDevice(WeatherStation station) {
+		this.station = station;
+		station.add(this);
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		station.getTemperature();
+		display();
+	}
+
+	@Override
+	public void display() {
+
+		System.out.println(station.getTemperature());
 	}
 
 }

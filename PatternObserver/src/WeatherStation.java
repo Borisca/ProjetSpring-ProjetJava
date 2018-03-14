@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class WeatherStation implements IObservable{
@@ -17,6 +16,7 @@ public class WeatherStation implements IObservable{
 	public void notifier() {
 		
 		for (Observer observer : listObserver) {
+
 			observer.update();
 		}
 		
@@ -32,9 +32,12 @@ public class WeatherStation implements IObservable{
 		listObserver.remove(obs);
 	}
 	
-	public int getTemperature() {
-		
+	public int getTemperature() {	
 		return this.temperature;
 	}
 
+	public void temperatureChange(int temperature) {
+		this.temperature=temperature;
+		notifier();
+	}
 }
