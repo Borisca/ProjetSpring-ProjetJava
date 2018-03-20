@@ -25,9 +25,9 @@ public class Modele implements IObservable{
 	public void notifier() {
 		for (IObserver iObserver : listObs) {
 			iObserver.update(this.texte);
-		}
-		
+		}	
 	}
+	
 	@Override
 	public void add(IObserver obs) {
 		listObs.add(obs);
@@ -38,10 +38,4 @@ public class Modele implements IObservable{
 		listObs.remove(obs);
 		
 	}
-	
-	
-		
-	
-
-
 }
