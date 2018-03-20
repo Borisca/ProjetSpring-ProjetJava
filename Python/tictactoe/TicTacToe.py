@@ -53,7 +53,7 @@ for a in horizontal:
 #tuple1=tuple(horizontal)
 #print(hex(id(tuple1)))
 #print(hex(id(horizontal)))
-a =["Paris","Marseille","La rochelle"]
+#a =["Paris","Marseille","La rochelle"]
 joueur=True
 while (True):
     place=" "

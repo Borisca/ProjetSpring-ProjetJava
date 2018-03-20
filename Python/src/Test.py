@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 '''
 Created on 19 mars 2018
 
 @author: bden
 '''
-# -*- coding: utf-8 -*-
+
 def testAge(): 
     try :
         b=input("Entre votre age")
