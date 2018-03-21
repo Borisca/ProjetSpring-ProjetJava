@@ -10,12 +10,17 @@ public class MySpringApp {
 		Coach footCoach=context.getBean("FootBallCoach",Coach.class);
 		Coach baseBallCoach=context.getBean("BaseBallCoach",Coach.class);
 		Coach cricketCoach=context.getBean("CricketCoach",Coach.class);
+		Coach piscineCoach =context.getBean("PiscineCoach",Coach.class);
 		System.out.println(footCoach.getDailyWorkOut());
 		System.out.println(baseBallCoach.getDailyWorkOut());
 		System.out.println(cricketCoach.getDailyWorkOut());
 		System.out.println(footCoach.cheerUp());
 		System.out.println(baseBallCoach.cheerUp());
 		System.out.println(cricketCoach.cheerUp());
+		System.out.println(piscineCoach.cheerUp());
+		System.out.println(piscineCoach.cheerUp());
+		System.out.println(piscineCoach.cheerUp());
+		System.out.println(piscineCoach.cheerUp());
 		context.close();
 	}
 }

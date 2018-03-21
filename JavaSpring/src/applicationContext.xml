@@ -7,7 +7,13 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
+
+	<context:property-placeholder location="classpath:info.properties" />
+	
 	<bean id="ServiceBouh" class="com.spring.Wooooo">
+	</bean>
+	
+	<bean id="Random" class="com.spring.RandomCheering">
 	</bean>
 
 	<bean id="ServiceClap" class="com.spring.Clap">
@@ -15,6 +21,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="FootBallCoach" class="com.spring.FootBallCoach">
 		<constructor-arg ref="ServiceClap" />
+		<property name="a" value="5" />
 	</bean>
 
 	<bean id="BaseBallCoach" class="com.spring.BaseBallCoach">
@@ -23,6 +30,12 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="CricketCoach" class="com.spring.CricketCoach">
 		<constructor-arg ref="ServiceBouh" />
+	</bean>
+
+	<bean id="PiscineCoach" class="com.spring.PiscineCoach">
+		<property name="cheeringService" ref="Random" />
+		<property name="nomEquipe" value="${x.nomEquipe}"></property>
+		<property name="email" value="${x.email}"></property>
 	</bean>
 
 
