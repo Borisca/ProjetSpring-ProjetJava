@@ -2,12 +2,12 @@
 import sqlite3
 connexion=sqlite3.connect("jobs.db")
 curseur=connexion.cursor()
-curseur2=connexion.cursor()
-requete="SELECT * FROM recent_grads ;"
+requete="SELECT major FROM recent_grads Order by major desc;"
 curseur.execute(requete)
-
 resultat=curseur.fetchall()
 names=[description[0] for description in curseur.description]
-print(names)
-for x in range (0,5):
-    print(resultat[x])
+print(names[0])
+for x in resultat:
+    print(x[0])
+
+connexion.close()
