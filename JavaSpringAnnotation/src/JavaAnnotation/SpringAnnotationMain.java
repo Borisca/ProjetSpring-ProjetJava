@@ -1,5 +1,6 @@
 package JavaAnnotation;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringAnnotationMain {
@@ -7,6 +8,7 @@ public class SpringAnnotationMain {
 	
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		AnnotationConfigApplicationContext context2=new AnnotationConfigApplicationContext();
 		
 		Coach baseball=context.getBean("baseBallCoach",Coach.class);
 		Coach baseball2=context.getBean("baseBallCoach",Coach.class);
