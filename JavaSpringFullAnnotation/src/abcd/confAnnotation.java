@@ -31,7 +31,6 @@ public class confAnnotation {
 		
 		System.out.println("base ball configuration");
 
-
 		
 		return new BaseBallCoach(clap());
 		
@@ -48,7 +47,6 @@ public class confAnnotation {
 	public ICheeringService clap() {
 		
 		System.out.println("clap configuration");
-		
 		return new Clap();
 		
 	}
