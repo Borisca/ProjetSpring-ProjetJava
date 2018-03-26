@@ -1,13 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="salut" method="GET">
-		<input type="text" name="prenom" placeholder="Rentrer votre prenom" />
-		<input type="submit" value="submit">
-	</form>
+
+	<!-- get les attributs grace au modelAttribute -->
+	<form:form action="salut" modelAttribute="myStudent">
+		<!-- 	get les input -->
+		<!-- 	<form action="salut" method="GET" > -->
+
+		<form:input path="prenom" />
+		<form:input path="nom" />
+		<!-- 		premiere solution -->
+		<!-- 		<select name="pays"> -->
+		<!-- 		<option>ENG</option> -->
+		<!-- 		<option>FRA</option> -->
+		<!-- 		<option>CA</option> -->
+		<!-- 		</select> -->
+
+		<form:select path="pays">
+			<form:options items="${myStudent.paysList}"></form:options>
+		</form:select>
+		<!-- 		CheckBoxes avec list de choix et choix final -->
+		<form:checkboxes items="${myStudent.langageProg}" path="favProg" />
+		<!-- 		RadioBUttons Pareil -->
+		<form:radiobuttons path="favSysteme"
+			items="${myStudent.systemeExploitation}" />
+		<form:button type="submit" value="submit">Submit</form:button>
+		<br>
+	</form:form>
 </body>
 </html>

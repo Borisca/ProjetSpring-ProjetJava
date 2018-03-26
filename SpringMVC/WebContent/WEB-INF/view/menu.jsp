@@ -3,6 +3,6 @@
 <body>
 <h1>SpringMVC</h1>
 
-<a href="hello/form">Clique ici</a>
+<a href="formulaire/form">Formulaire</a>
 </body>
 </html>
