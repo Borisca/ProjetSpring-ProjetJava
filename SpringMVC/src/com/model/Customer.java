@@ -4,10 +4,9 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.websocket.OnError;
+import javax.validation.constraints.Pattern;
 
-import org.springframework.format.annotation.NumberFormat;
+import com.annotation.exemplevalidation.Promotion;
 
 /**
  * @author bden
@@ -16,11 +15,15 @@ import org.springframework.format.annotation.NumberFormat;
 public class Customer {
 
 
+	@Promotion(value= {"BOR","BEN"})
+	private String promoCode;
+	@Pattern(regexp="^[a-zA-Z0-9]{5}",message="Yo code postal faux")
+	private String postalCode;
 	@NotEmpty(message="is required") 
-	String nom;
-	String prenom;
-	@NotNull @Min(value=0,message="au moins 1 an") @Max(value=99,message="Pas au dessus de 99")
-	int age;
+	private String nom;
+	private String prenom;
+	@NotNull(message="Erreur") 	@Min(value=0,message="au moins 1 an") @Max(value=99,message="Pas au dessus de 99")
+	private int age;
 	
 	public Customer(String nom, String prenom) {
 		this.nom = nom;
@@ -49,7 +52,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [nom=" + nom + ", prenom=" + prenom + "]";
+		return "Customer nom :" + nom + ", prenom:" + prenom + " "+age;
 	}
 
 	public int getAge() {
@@ -58,6 +61,22 @@ public class Customer {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getPromoCode() {
+		return promoCode;
+	}
+
+	public void setPromoCode(String promoCode) {
+		this.promoCode = promoCode;
 	}
 	
 }

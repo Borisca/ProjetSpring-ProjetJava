@@ -24,4 +24,8 @@
 		<property name="prefix" value="/WEB-INF/view/"></property>
 		<property name="suffix" value=".jsp" />
 	</bean>
+<!-- 	Ecrase message erreur typeMismatch pour l'age -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	<property name="basenames" value="/com.msgProperty/message"></property>
+	</bean>
 </beans>
