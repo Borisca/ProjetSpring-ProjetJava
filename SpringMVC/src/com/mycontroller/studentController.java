@@ -31,9 +31,8 @@ public class studentController {
 	}
 	
 	@RequestMapping("/salut")
-	public String getSalut(@ModelAttribute("myStudent")Student myStudent,Model model) {
+	public String getSalut(@ModelAttribute("myStudent")Student myStudent) {
 		//ON INJECTE lE BON MODELE DANS NOTRE METHODE ET PAF CA FAIT DES CHOCAPIC
-		System.out.println(myStudent.getFavProg());
 		return "page2";
 	}
 }
