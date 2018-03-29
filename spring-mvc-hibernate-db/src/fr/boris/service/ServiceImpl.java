@@ -19,7 +19,16 @@ public class ServiceImpl implements CustomerService{
 	public List<Customer> getCustomers() {
 		return cdi.getCustomers();
 	}
+	
+	public void addCustomer(Customer cust) {
+		cdi.addCustomer(cust);
+	}
 
+	@Override
+	public Customer getCustomer(int id) {
+		
+		return cdi.getCustomer(id);
+	}
 
 	
 	

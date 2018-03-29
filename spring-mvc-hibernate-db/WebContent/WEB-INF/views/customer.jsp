@@ -7,6 +7,6 @@
 </head>
 <body>
 	<h1>Customer</h1>
-	<jsp:include page="customer-list.jsp"></jsp:include>
+	<a href="customer">list</a>
 </body>
 </html>

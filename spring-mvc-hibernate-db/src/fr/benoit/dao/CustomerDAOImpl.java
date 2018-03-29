@@ -36,9 +36,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		// Execute query and get result list.
 		List<Customer> customers = q.getResultList();
 
-		for (Customer customer : customers) {
-			System.out.println(customer);
-		}
+
 
 		// Test
 		// System.out.println("ici "+ customers.toString());
@@ -46,5 +44,21 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return customers;
 
 	}
+	@Override
+	public void addCustomer(Customer cust) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.save(cust);
+		System.out.println("saved");
+	}
+	
+	
+	@Override
+	public Customer getCustomer(int id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		return currentSession.get(Customer.class, id);
+	}
+	
+	
 
 }
