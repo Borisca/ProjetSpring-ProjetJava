@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dao.CityDAO;
@@ -17,9 +18,10 @@ public class CustomerController {
 	CityDAO ci;
 	
 	@RequestMapping("/list")
-	public String customerRequest() {
+	public String customerRequest(Model model) {
 		List<City> q=ci.getCities();
-		return "customer";
+		model.addAttribute("listCity",q);
+		return "customer-list";
 	}
 
 	
