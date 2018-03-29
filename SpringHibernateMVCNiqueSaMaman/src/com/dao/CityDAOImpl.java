@@ -27,9 +27,12 @@ public class CityDAOImpl implements CityDAO {
 
 		Query<City> query = currentSession.createQuery("from City",City.class);
 		
-		
+		List<City> a = query.getResultList();
 
-		return null;
+		for (City city : a) {
+			System.out.println(city);
+		}
+		return a;
 	}
 
 	public SessionFactory getSession() {

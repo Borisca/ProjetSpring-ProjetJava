@@ -6,6 +6,24 @@
 <title>Customer</title>
 </head>
 <body>
-<a href="list-customer">customerList</a>
+
+	<header>
+		<h1>CRM - CUSTOMER RELATIONSHIP MANAGER</h1>
+	</header>
+
+<!-- 	<section> -->
+<%-- 		<form:form action="list-customer" modelAttribute="customer"> --%>
+<%-- 			<form:button type="submit">Add Customer</form:button> --%>
+<%-- 		</form:form> --%>
+<!-- 	</section> -->
+	<table>
+		<tr>
+			<td>ID</td>
+			<td>Nom</td>
+			<td>Prenom</td>
+			<td>Adresse e-mail</td>
+		</tr>
+	</table>
+
 </body>
 </html>

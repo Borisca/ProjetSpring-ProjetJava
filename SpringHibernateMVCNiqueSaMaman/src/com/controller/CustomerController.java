@@ -21,11 +21,8 @@ public class CustomerController {
 		List<City> q=ci.getCities();
 		return "customer";
 	}
+
 	
-	@RequestMapping("/list-customer")
-	public String customerList() {
-		
-		return "customer-list";
-	}
 	
+
 }
