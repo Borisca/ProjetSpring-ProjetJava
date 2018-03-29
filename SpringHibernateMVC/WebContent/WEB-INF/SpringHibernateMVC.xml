@@ -52,8 +52,9 @@
 		      <prop key="hibernate.show_sql">true</prop>
 		   </props>
 		</property>
-   </bean>	  
-
+   </bean>	
+     
+ 
     <!-- Step 3: Setup Hibernate transaction manager -->
 	<bean id="myTransactionManager"
             class="org.springframework.orm.hibernate5.HibernateTransactionManager">
