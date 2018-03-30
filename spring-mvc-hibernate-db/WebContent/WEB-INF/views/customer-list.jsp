@@ -51,15 +51,21 @@ tr:nth-child(even) {
 		</thead>
 		<tbody>
 			<c:forEach items="${listCustomers}" var="item">
-				<c:url value="updatePage" var="updatePage">
-							<c:param name="ident" value="${item.id}" />
-				</c:url>
+
 				<tr>
 					<td>${item.id}</td>
 					<td>${item.last_name}</td>
 					<td>${item.first_name}</td>
 					<td>${item.email}</td>
-					<td><a href="updatePage">update</a></td>
+
+					<td>
+						<c:url value="updatePage" var="updatePage">
+							<c:param name="identity" value="${item.id}" />
+						</c:url> <a href="${updatePage}">update</a> | 
+						<c:url value="removePage" var="removePage">
+							<c:param name="identity" value="${item.id}" />
+						</c:url> <a href="${removePage}">remove</a>
+					</td>
 
 				</tr>
 			</c:forEach>

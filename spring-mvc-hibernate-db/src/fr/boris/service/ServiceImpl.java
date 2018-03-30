@@ -30,6 +30,12 @@ public class ServiceImpl implements CustomerService{
 		return cdi.getCustomer(id);
 	}
 
+	@Override
+	public void removeCustomer(Customer cust) {
+		cdi.removeCustomer(cust);
+		
+	}
+
 	
 	
 }
