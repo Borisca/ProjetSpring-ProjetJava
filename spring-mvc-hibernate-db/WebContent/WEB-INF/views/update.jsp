@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form action="affichage" modelAttribute="cust">
+	<form:form action="execute" modelAttribute="cust">
 
 		<h3>
 			Nom: <br>

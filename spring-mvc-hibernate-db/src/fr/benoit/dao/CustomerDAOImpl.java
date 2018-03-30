@@ -48,7 +48,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public void addCustomer(Customer cust) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(cust);
-		System.out.println("saved");
+
 	}
 	
 	
@@ -63,8 +63,12 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public void removeCustomer(Customer cust) {
 		Session currentSession=sessionFactory.getCurrentSession();
 		currentSession.delete(cust);
+
 	}
 	
-	
+	public void updateCustomer(Customer cust) {
+		Session currentSession=sessionFactory.getCurrentSession();
+		currentSession.update(cust);
+	}
 
 }

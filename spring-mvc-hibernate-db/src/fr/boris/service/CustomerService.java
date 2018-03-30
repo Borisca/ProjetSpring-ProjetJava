@@ -9,4 +9,6 @@ public  interface CustomerService {
 	public List<Customer> getCustomers();
 	public Customer getCustomer(int id);
 	public void removeCustomer(Customer cust);
+	public void updateCustomer(Customer cust);
+	
 }

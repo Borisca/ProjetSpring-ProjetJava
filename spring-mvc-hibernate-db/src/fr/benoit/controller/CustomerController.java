@@ -9,13 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import fr.benoit.db.entity.Customer;
 import fr.boris.service.CustomerService;
 
 @Controller
+@SessionAttributes("customerStore")
 @RequestMapping("/")
 public class CustomerController {
 
@@ -48,22 +51,36 @@ public class CustomerController {
 			return "addCust";
 	}
 	@RequestMapping("/affichage")
-	public String affichage(@Valid @ModelAttribute("cust")Customer cust,BindingResult myBinding,Model model) {
-		
+	//
+	public String affichage(@Valid @ModelAttribute("cust")Customer cust,Model model) {
+
+		if(cust.getId()==0) {
 			ser.addCustomer(cust);
+		}else {
+			ser.updateCustomer(cust);
+		}
 			return "redirect:customer";
-	
-		
-		
+
 	}
 	
 	@RequestMapping("/updatePage")
 	public String update(@RequestParam("identity") int ident,Model model){
 		
-		Customer cust=ser.getCustomer(ident);
-		model.addAttribute("cust",cust);
-		ser.removeCustomer(cust);
+		model.addAttribute("cust",ser.getCustomer(ident));
+		
+		System.out.println("update"+ser.getCustomer(ident));	
 		return"addCust";
+	}
+	@RequestMapping("/execute")
+
+	public String execute(@Valid @ModelAttribute("cust")Customer custom,Model model) {
+	
+
+			ser.updateCustomer(custom);
+			
+			
+			return "redirect:customer";
+
 	}
 	
 	@RequestMapping("/removePage")
@@ -74,5 +91,8 @@ public class CustomerController {
 		return "redirect:customer";
 		
 	}
+
+	
+
 
 }

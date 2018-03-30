@@ -35,6 +35,9 @@ public class ServiceImpl implements CustomerService{
 		cdi.removeCustomer(cust);
 		
 	}
+	public void updateCustomer(Customer cust) {
+		cdi.updateCustomer(cust);
+	}
 
 	
 	

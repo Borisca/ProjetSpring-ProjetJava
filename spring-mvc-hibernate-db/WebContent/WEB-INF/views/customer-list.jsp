@@ -3,29 +3,68 @@
 <!DOCTYPE html>
 <head>
 <style>
+header{
+background:rgb(102,102,204);
+display:flex;
+flex-direction: column;
+margin: 5px,0,0,0,
+}
+
 h2 {
+	box-sizing:border-box;
+	border:solid 2px;
+	height:70px;
+	position:relative;
+	top:-22px;
+	text-align:center;
 	background: green;
 }
 
 body {
+	background-color:rgb(102,102,204);
 	display: flex;
 	flex-direction: column;
 }
 
 button {
 	width: 150px;
+	
 }
 
-th {
-	width: 500px;
-	text-align: center;
-	background: green
+table{
+
+display:flex;
+flex-direction:column;
+width:70%;
+background-color:white;
+position:relative;
+left:17%;
 }
 
-td {
-	width: 500px;
-	text-align: center
+tr{
+
+	display:flex;
+	width:100%;
+
 }
+thead {
+	
+  	width:150px
+ 	text-align: center; 
+ 	background: green; 
+ 	
+}
+tbody{
+width:200%;
+}
+ td { 
+	width:150px; 
+ 	text-align: center  
+ } 
+ 
+th{
+width:150px;
+ }
 
 tr:nth-child(even) {
 	background: grey;
@@ -33,11 +72,12 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+<header>
 	<h2>Ma liste de clients</h2>
 
 	<button type="button" onclick="window.location.href='addCustomer'">Add
 		Customer</button>
-
+</header>
 
 	<table>
 		<thead>
