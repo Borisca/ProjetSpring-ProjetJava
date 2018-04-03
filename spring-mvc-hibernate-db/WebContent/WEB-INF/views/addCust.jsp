@@ -8,6 +8,8 @@
 <body>
 	<form:form action="affichage" modelAttribute="cust">
 
+
+		<form:input path="id" />
 		<h3>
 			Nom: <br>
 
@@ -32,9 +34,9 @@
 		<br>
 
 		<p>
-			<form:button type="submit" value="submit" >Submit</form:button>
+			<form:button type="submit" value="submit">Submit</form:button>
 		</p>
-		<input type="button"  onclick="location.href='cancel'" value="cancel" />
+		<input type="button" onclick="location.href='cancel'" value="cancel" />
 	</form:form>
 
 </body>

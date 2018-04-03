@@ -2,6 +2,7 @@ package fr.benoit.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -71,17 +73,7 @@ public class CustomerController {
 		System.out.println("update"+ser.getCustomer(ident));	
 		return"addCust";
 	}
-	@RequestMapping("/execute")
 
-	public String execute(@Valid @ModelAttribute("cust")Customer custom,Model model) {
-	
-
-			ser.updateCustomer(custom);
-			
-			
-			return "redirect:customer";
-
-	}
 	
 	@RequestMapping("/removePage")
 	public String removeCustomer(@RequestParam("identity") int ident,Model model) {
@@ -91,7 +83,14 @@ public class CustomerController {
 		return "redirect:customer";
 		
 	}
-
+	@RequestMapping(value="/recherche", method = RequestMethod.POST)
+	public String rechercheCustomer(Model model,HttpServletRequest request) {	
+		String entree=request.getParameter("rechercheMot");
+		List<Customer> listCustomers=ser.rechercheCustomer(entree);	
+		model.addAttribute("listCustomers", listCustomers);
+		return "customer-list";
+		
+	}
 	
 
 

@@ -39,6 +39,12 @@ public class ServiceImpl implements CustomerService{
 		cdi.updateCustomer(cust);
 	}
 
+	@Override
+	public List<Customer> rechercheCustomer(String txt) {
+		
+		return cdi.rechercheCustomers(txt);
+	}
+
 	
 	
 }
