@@ -2,6 +2,8 @@ package fr.benoit.dao;
 
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -69,6 +71,15 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public void updateCustomer(Customer cust) {
 		Session currentSession=sessionFactory.getCurrentSession();
 		currentSession.update(cust);
+	}
+	@Override
+	public List<Customer> rechercheCustomers(String txt) {
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		Query<Customer> q = currentSession.createQuery("from Customer where last_name LIKE :searchKeyword OR first_name LIKE :searchKeyword", Customer.class);
+		q.setParameter("searchKeyword", "%"+txt+"%");
+
+		return q.getResultList();
 	}
 
 }

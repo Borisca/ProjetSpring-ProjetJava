@@ -24,6 +24,8 @@ public class Customer {
 
 	@Column(name="email")
 	private String email;
+	
+
 
 	public Customer() {
 		super();
@@ -111,6 +113,6 @@ public class Customer {
 			return false;
 		return true;
 	}
-	
 
+	
 }

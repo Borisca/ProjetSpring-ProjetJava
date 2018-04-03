@@ -3,68 +3,64 @@
 <!DOCTYPE html>
 <head>
 <style>
-header{
-background:rgb(102,102,204);
-display:flex;
-flex-direction: column;
-margin: 5px,0,0,0,
+header {
+	background: rgb(102, 102, 204);
+	display: flex;
+	flex-direction: column;
+	margin: 5px, 0, 0, 0,
 }
 
 h2 {
-	box-sizing:border-box;
-	border:solid 2px;
-	height:70px;
-	position:relative;
-	top:-22px;
-	text-align:center;
+	box-sizing: border-box;
+	border: solid 2px;
+	height: 70px;
+	position: relative;
+	top: -22px;
+	text-align: center;
 	background: green;
 }
 
 body {
-	background-color:rgb(102,102,204);
+	background-color: rgb(102, 102, 204);
 	display: flex;
 	flex-direction: column;
 }
 
 button {
 	width: 150px;
-	
 }
 
-table{
-
-display:flex;
-flex-direction:column;
-width:70%;
-background-color:white;
-position:relative;
-left:17%;
+table {
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	background-color: white;
+	position: relative;
+	left: 17%;
 }
 
-tr{
-
-	display:flex;
-	width:100%;
-
+tr {
+	display: flex;
+	width: 100%;
 }
+
 thead {
-	
-  	width:150px
- 	text-align: center; 
- 	background: green; 
- 	
+	width: 150px text-align: center;
+	background: green;
 }
-tbody{
-width:200%;
+
+tbody {
+	width: 200%;
 }
- td { 
-	width:150px; 
- 	text-align: center  
- } 
- 
-th{
-width:150px;
- }
+
+td {
+	width: 150px;
+	text-align: center
+}
+
+th {
+	width: 150px;
+}
 
 tr:nth-child(even) {
 	background: grey;
@@ -72,12 +68,18 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
-<header>
-	<h2>Ma liste de clients</h2>
+	<header>
+		<h2>Ma liste de clients</h2>
 
-	<button type="button" onclick="window.location.href='addCustomer'">Add
-		Customer</button>
-</header>
+		<button type="button" onclick="window.location.href='addCustomer'">Add
+			Customer</button>
+
+		<form method="post" action="recherche">
+			<input name="rechercheMot" /> <input type="submit" value="Rechercher" />
+
+		</form>
+
+	</header>
 
 	<table>
 		<thead>
@@ -98,16 +100,12 @@ tr:nth-child(even) {
 					<td>${item.first_name}</td>
 					<td>${item.email}</td>
 
-					<td>
-					
-				 
-						<c:url value="updatePage" var="updatePage">
+					<td><c:url value="updatePage" var="updatePage">
 							<c:param name="identity" value="${item.id}" />
-						</c:url> <a href="${updatePage}">update</a> | 
-						<c:url value="removePage" var="removePage">
+						</c:url> <a href="${updatePage}">update</a> | <c:url value="removePage"
+							var="removePage">
 							<c:param name="identity" value="${item.id}" />
-						</c:url> <a href="${removePage}">remove</a>
-					</td>
+						</c:url> <a href="${removePage}">remove</a></td>
 
 				</tr>
 			</c:forEach>
