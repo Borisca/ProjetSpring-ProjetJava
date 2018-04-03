@@ -17,12 +17,12 @@ import fr.benoit.db.entity.Customer;
 @Repository
 public class CustomerDAOImpl implements CustomerDAO {
 
+	
 	// Need to inject the session factory.
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Override
-
 	public List<Customer> getCustomers() {
 
 		// Get the current hibernate session.

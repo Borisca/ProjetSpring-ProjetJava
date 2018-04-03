@@ -37,7 +37,7 @@
 		<property name="jdbcUrl"
 			value="jdbc:mysql://localhost:3306/web_customer_tracker" />
 		<property name="user" value="root" />
-		<property name="password" value="1234" />
+		<property name="password" value="123456789" />
 
 		<!-- these are connection pool properties for C3P0 -->
 		<property name="minPoolSize" value="5" />

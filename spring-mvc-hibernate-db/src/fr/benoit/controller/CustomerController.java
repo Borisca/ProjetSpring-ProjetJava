@@ -28,13 +28,13 @@ public class CustomerController {
 	@Autowired
 	private CustomerService ser;
 
-	@RequestMapping("/")
+	@RequestMapping(value="/")
 	public String getListCustomers(Model model) {
 
 		return "customer";
 	}
 
-	@RequestMapping("/customer")
+	@RequestMapping(value="/customer")
 	public String showPage(Model model) {
 
 		List<Customer> listCustomers = ser.getCustomers();
@@ -43,7 +43,7 @@ public class CustomerController {
 		return "customer-list";
 	}
 
-	@RequestMapping("/addCustomer")
+	@RequestMapping(value="/addCustomer")
 	public String addCustomers(@ModelAttribute("cust") Customer cust, Model model) {
 		Customer custom;
 		System.out.println("addCustomer" + cust);
@@ -54,8 +54,7 @@ public class CustomerController {
 		return "addCust";
 	}
 
-	@RequestMapping("/affichage")
-	//
+	@RequestMapping(value="/affichage")
 	public String affichage(@ModelAttribute("cust") Customer cust) {
 
 		if(cust.getId()==0)
@@ -66,7 +65,7 @@ public class CustomerController {
 
 	}
 
-	@RequestMapping("/updatePage")
+	@RequestMapping(value="/updatePage")
 	public String update(@RequestParam("identity") int ident, Model model) {
 		System.out.println("wqeeewq" + ident);
 		model.addAttribute("cust", ser.getCustomer(ident));
@@ -77,7 +76,7 @@ public class CustomerController {
 
 	
 
-	@RequestMapping("/removePage")
+	@RequestMapping(value="/removePage")
 	public String removeCustomer(@RequestParam("identity") int ident, Model model) {
 		Customer cust = ser.getCustomer(ident);
 		ser.removeCustomer(cust);
@@ -85,16 +84,17 @@ public class CustomerController {
 		return "redirect:customer";
 		
 	}
-	@RequestMapping(value="/recherche", method = RequestMethod.POST)
+	@RequestMapping(value="/recherche")
 	public String rechercheCustomer(Model model,HttpServletRequest request) {	
 		String entree=request.getParameter("rechercheMot");
+		System.out.println(entree);
 		List<Customer> listCustomers=ser.rechercheCustomer(entree);	
 		model.addAttribute("listCustomers", listCustomers);
 		return "customer-list";
 		
 	}
-	
 
-	}
+
+	
 
 }

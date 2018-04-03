@@ -74,8 +74,8 @@ tr:nth-child(even) {
 		<button type="button" onclick="window.location.href='addCustomer'">Add
 			Customer</button>
 
-		<form method="post" action="recherche">
-			<input name="rechercheMot" /> <input type="submit" value="Rechercher" />
+		<form action="recherche">
+			<input  name="rechercheMot"/> <input type="submit" value="Rechercher" />
 
 		</form>
 
