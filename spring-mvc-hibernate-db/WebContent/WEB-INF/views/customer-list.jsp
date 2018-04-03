@@ -99,6 +99,8 @@ tr:nth-child(even) {
 					<td>${item.email}</td>
 
 					<td>
+					
+				 
 						<c:url value="updatePage" var="updatePage">
 							<c:param name="identity" value="${item.id}" />
 						</c:url> <a href="${updatePage}">update</a> | 

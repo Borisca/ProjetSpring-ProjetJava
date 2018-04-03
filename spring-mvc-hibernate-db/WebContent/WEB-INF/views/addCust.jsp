@@ -9,6 +9,13 @@
 	<form:form action="affichage" modelAttribute="cust">
 
 		<h3>
+		Id :
+		 <br>
+		<form:input path="id" readonly="true"></form:input>
+		<br>
+		</h3>
+
+		<h3>
 			Nom: <br>
 
 			<form:input path="last_name" />
@@ -32,7 +39,7 @@
 		<br>
 
 		<p>
-			<form:button type="submit" value="submit" >Submit</form:button>
+			<form:button >Submit</form:button>
 		</p>
 		<input type="button"  onclick="location.href='cancel'" value="cancel" />
 	</form:form>
